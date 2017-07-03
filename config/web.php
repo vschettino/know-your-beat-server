@@ -12,12 +12,19 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
-      'redis' => [
-    'class' => 'yii\redis\Connection',
-    'hostname' => 'localhost',
-    'port' => 6379,
-    'database' => 0,
-],
+        'spotifySession' => function (){
+          return new SpotifyWebAPI\Session(
+              'dee67d06548647829f409a019994bc00',
+              'b0353140e07c44c49e23e20b51a7fff8',
+              'http://localhost:81/oauth/callback'
+          );
+        },
+        'redis' => [
+          'class' => 'yii\redis\Connection',
+          'hostname' => 'localhost',
+          'port' => 6379,
+          'database' => 0,
+        ],
         'request' => [
             'cookieValidationKey' => '94u9mu09034292039u4c3209744890530943jpo',
             'parsers' => [
