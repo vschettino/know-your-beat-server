@@ -36,7 +36,8 @@ $config = [
         ],
         'user' => [
             'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
+            'enableSession' => false,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -64,7 +65,13 @@ $config = [
             'rules' => [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'user',
                 'extraPatterns' => [
-                    'GET token/<id>' => 'token',
+                    'GET authorize-url' => 'authorize-url',
+                    'GET refresh-token' => 'refresh-token',
+                  ],
+                ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => ['oauth'=>'oauth'],
+                'extraPatterns' => [
+                    'GET callback' => 'callback',
                   ],
                 ],
             ],
