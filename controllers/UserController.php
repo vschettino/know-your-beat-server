@@ -27,13 +27,16 @@ class UserController extends ActiveController
       $options = [
           'scope' => [
               'user-read-email',
+              'user-top-read',
+              'user-read-birthdate',
+              'user-read-private',
+              'user-read-currently-playing',
+              'user-read-recently-played',
+              'user-read-playback-state',
+              'user-library-read',
+              'user-follow-read',
               'playlist-read-private',
               'playlist-read-collaborative',
-              'user-follow-read',
-              'user-library-read',
-              'user-read-private',
-              'user-read-birthdate',
-              'user-top-read',
           ],
       ];
 

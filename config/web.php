@@ -74,6 +74,11 @@ $config = [
                     'GET callback' => 'callback',
                   ],
                 ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'track',
+                'extraPatterns' => [
+                    'GET <id:\w+>' => 'view',
+                  ],
+              ],
             ],
         ],
     ],
