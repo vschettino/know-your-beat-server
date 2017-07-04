@@ -2,7 +2,7 @@
 
 $params = require(__DIR__ . '/params.php');
 $db = require(__DIR__ . '/db.php');
-
+$spotify = require(__DIR__ . '/spotify.php');
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
@@ -12,12 +12,8 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
-        'spotifySession' => function (){
-          return new SpotifyWebAPI\Session(
-              'dee67d06548647829f409a019994bc00',
-              'b0353140e07c44c49e23e20b51a7fff8',
-              'http://localhost:81/oauth/callback'
-          );
+        'spotifySession' => function () use ($spotify){
+          return new SpotifyWebAPI\Session(...$spotify);
         },
         'redis' => [
           'class' => 'yii\redis\Connection',
@@ -69,6 +65,7 @@ $config = [
                     'GET refresh-token' => 'refresh-token',
                   ],
                 ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'recommendation'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => ['oauth'=>'oauth'],
                 'extraPatterns' => [
                     'GET callback' => 'callback',
@@ -86,7 +83,7 @@ $config = [
                   'GET <id:\w+>' => 'view',
                 ],
             ],
-            ],
+          ],
         ],
     ],
     'params' => $params,
