@@ -29,6 +29,7 @@ class TrackController extends ActiveController
     {
         $actions = parent::actions();
         unset($actions['index'],$actions['view']);
+        $actions['stats'] = 'app\components\TracksStatsAction';
         return $actions;
     }
 
@@ -64,5 +65,7 @@ class TrackController extends ActiveController
           throw new HttpException($e->getCode(),$e->getMessage());
         }
     }
+
+
 
 }
