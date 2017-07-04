@@ -80,6 +80,12 @@ $config = [
                     'GET <id:\w+>' => 'view',
                   ],
               ],
+              ['class' => 'yii\rest\UrlRule', 'controller' => 'artist',
+              'extraPatterns' => [
+                  'GET stats' => 'stats',
+                  'GET <id:\w+>' => 'view',
+                ],
+            ],
             ],
         ],
     ],
