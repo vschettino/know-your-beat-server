@@ -7,4 +7,4 @@
     Thanks for the access! Now you can go back to the application.
 </p>
 
-<a class='btn btn-success' href='<?= 'http://localhost/profile?code='. $user->access_token; ?>'>Let's browse</a>
+<a class='btn btn-success' href='<?= $client_callback ?>'>Let's browse</a>

@@ -31,7 +31,8 @@ class OauthController extends Controller
       $user->access_token = $accessToken;
       $user->refresh_token = $refreshToken;
       $user->save();
-      return $this->render('index', ['user'=>$user]);
+      $client_callback = \Yii::$app->params['client_callback_uri'].$user->access_token;
+      return $this->render('index', ['client_callback'=>$client_callback]);
 
     }
 

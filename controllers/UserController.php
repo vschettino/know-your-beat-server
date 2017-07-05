@@ -5,6 +5,8 @@ use yii\filters\auth\HttpBearerAuth;
 use yii\rest\ActiveController;
 use SpotifyWebAPI\Session;
 use SpotifyWebAPI\SpotifyWebAPI;
+use yii\filters\Cors;
+
 class UserController extends ActiveController
 {
     public $modelClass = 'app\models\User';
@@ -12,10 +14,11 @@ class UserController extends ActiveController
 
     public function behaviors()
     {
+      
       $behaviors = parent::behaviors();
       $behaviors['authenticator'] = [
           'class' => HttpBearerAuth::className(),
-          'except' => ['authorize-url']
+          'except' => ['authorize-url','options']
       ];
       return $behaviors;
     }

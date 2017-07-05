@@ -64,25 +64,27 @@ $config = [
                     'GET authorize-url' => 'authorize-url',
                     'GET refresh-token' => 'refresh-token',
                     'GET me' => 'me',
+                    'OPTIONS me' => 'options',
+                    'OPTIONS refresh-token' => 'options'
 
                   ],
                 ],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'recommendation'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => ['oauth'=>'oauth'],
                 'extraPatterns' => [
-                    'GET callback' => 'callback',
+                    'GET,OPTIONS  callback' => 'callback',
                   ],
                 ],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'track',
                 'extraPatterns' => [
-                    'GET stats' => 'stats',
-                    'GET <id:\w+>' => 'view',
+                    'GET,OPTIONS  stats' => 'stats',
+                    'GET,OPTIONS  <id:\w+>' => 'view',
                   ],
               ],
               ['class' => 'yii\rest\UrlRule', 'controller' => 'artist',
               'extraPatterns' => [
-                  'GET stats' => 'stats',
-                  'GET <id:\w+>' => 'view',
+                  'GET,OPTIONS  stats' => 'stats',
+                  'GET,OPTIONS  <id:\w+>' => 'view',
                 ],
             ],
           ],
