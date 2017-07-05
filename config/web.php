@@ -63,6 +63,8 @@ $config = [
                 'extraPatterns' => [
                     'GET authorize-url' => 'authorize-url',
                     'GET refresh-token' => 'refresh-token',
+                    'GET me' => 'me',
+
                   ],
                 ],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'recommendation'],

@@ -53,6 +53,21 @@ class UserController extends ActiveController
       return ['access_token' => $session->getAccessToken()];
     }
 
+    public function actionMe(){
+      $user = \Yii::$app->user->identity;
+      $api = new SpotifyWebAPI();
+      $api->setReturnType(SpotifyWebAPI::RETURN_ASSOC);
+
+      $api->setAccessToken($user->access_token);
+      try{
+        return $api->me();
+      }
+      catch (SpotifyWebAPIException $e){
+        throw new HttpException($e->getCode(),$e->getMessage());
+      }
+    }
+
+
 
 
 
