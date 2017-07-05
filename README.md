@@ -2,6 +2,7 @@ Know Your Beat (Server)
 ============================
 
 This is the server-side of an app that helps you to understand your musical taste and find songs you may like. Buit with the [Spotify Web API](https://developer.spotify.com/web-api) and on top of  [Yii 2 Framework](http://www.yiiframework.com/). Many thanks to [@jwilsson](https://github.com/jwilsson/spotify-web-api-php/) and his wonderful Spotify API SDK for PHP.
+
 REQUIREMENTS
 ------------
 
