@@ -77,8 +77,10 @@ $config = [
                 ],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'track',
                 'extraPatterns' => [
-                    'GET,OPTIONS  stats' => 'stats',
-                    'GET,OPTIONS  <id:\w+>' => 'view',
+                    'GET stats' => 'stats',
+                    'GET <id:\w+>' => 'view',
+                    'OPTIONS stats' => 'options',
+                    'OPTIONS <id:\w+>' => 'options'
                   ],
               ],
               ['class' => 'yii\rest\UrlRule', 'controller' => 'artist',
