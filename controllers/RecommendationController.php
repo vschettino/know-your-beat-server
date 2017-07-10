@@ -20,6 +20,8 @@ class RecommendationController extends ActiveController
       $behaviors = parent::behaviors();
       $behaviors['authenticator'] = [
           'class' => HttpBearerAuth::className(),
+          'except' => ['options']
+
       ];
       return $behaviors;
     }

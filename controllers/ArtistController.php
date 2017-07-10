@@ -20,7 +20,7 @@ class ArtistController extends ActiveController
       $behaviors = parent::behaviors();
       $behaviors['authenticator'] = [
           'class' => HttpBearerAuth::className(),
-          'except' => ['authorize-url']
+          'except' => ['authorize-url','options']
       ];
       return $behaviors;
     }

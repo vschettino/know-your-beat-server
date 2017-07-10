@@ -66,10 +66,13 @@ $config = [
                     'GET me' => 'me',
                     'OPTIONS me' => 'options',
                     'OPTIONS refresh-token' => 'options'
-
                   ],
                 ],
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'recommendation'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'recommendation',
+                'extraPatterns' => [
+                    'OPTIONS' => 'options'
+                  ],
+              ],
                 ['class' => 'yii\rest\UrlRule', 'controller' => ['oauth'=>'oauth'],
                 'extraPatterns' => [
                     'GET,OPTIONS  callback' => 'callback',
@@ -85,8 +88,11 @@ $config = [
               ],
               ['class' => 'yii\rest\UrlRule', 'controller' => 'artist',
               'extraPatterns' => [
-                  'GET,OPTIONS  stats' => 'stats',
-                  'GET,OPTIONS  <id:\w+>' => 'view',
+                  'GET stats' => 'stats',
+                  'GET <id:\w+>' => 'view',
+                  'OPTIONS stats' => 'options',
+                  'OPTIONS <id:\w+>' => 'options',
+
                 ],
             ],
           ],
